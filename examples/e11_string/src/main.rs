@@ -1,84 +1,89 @@
 #[allow(unused_mut)]
+#[allow(unused_variables)]
 
 fn main() {
-    println!("Declaring an empty string");
-    let empty_string = String::new();
-    println!("\tlet empty_string = String::new();");
-    println!("\tempty_string = {}", empty_string);
+    println!("1. Declaring an empty string");
+    let my_str = String::new();
+    println!("\t{}", my_str);
 
-    println!("Declaring a string (String) with initial value");
-    let init_string_string = String::from("initial value");
-    println!("\tlet init_string_string = String::from(\"initial value\");");
-    println!("\tinit_string_string = {}", init_string_string);
+    println!("2. Declaring a string (String) with initial value");
+    let my_str = String::from("abcd");
+    println!("\t{}", my_str);
 
-    println!("Declaring a string (String) with initial value");
-    let mut init_string_string_2 = "initial value 3".to_string();
-    println!("\tlet init_string_string_2 = \"initial value 3\";");
-    println!("\tinit_string_string_2 = {}", init_string_string_2);
+    println!("3. Declaring a string (String) with initial value");
+    let mut my_str = "1234".to_string();
+    println!("\t{}", my_str);
 
-    println!("Declaring a string (str) with initial value");
-    let init_string_str = "initial value 2";
-    println!("\tlet init_string_str = \"initial value 2\";");
-    println!("\tinit_string_str = {}", init_string_str);
+    println!("4. Declaring a string (str) with initial value");
+    let my_str = "zxcv";
+    println!("\t{}", my_str);
 
-    println!("String decomposition to bytes");
-    let decompose_me = String::from("1234");
-    let bytes = decompose_me.as_bytes();
-    println!("\tlet decompose_me = String::from(\"1234\");");
-    println!("\tlet bytes = decompose_me.as_bytes();");
-    println!("\tbytes = {:?}", bytes);
+    println!("5. String decomposition into bytes");
+    let my_str = String::from("1234");
+    println!("\t{:?}", my_str.as_bytes());
 
-    println!("Capacity of a string");
-    let measure_me = String::from("1234567");
-    println!("\tlet measure_me = String::from(\"1234567\");");
-    println!("\tmeasure_me.capacity() = {}", measure_me.capacity());
+    println!("6. Capacity of a string");
+    let my_str = String::from("1234567");
+    println!("\t{}", my_str.capacity());
 
-    println!("String vs str");
-    let mut string_string = String::from("hello "); // mutable and can be treated
-    let mut string_string_2 = "hello ".to_string(); // mutable and can be treated
-    let mut string_str = "hello rust"; // immutable and can't be treated
-    println!("\tlet mut string_string = String::from(\"hello \");");
-    println!("\tlet mut string_string_2 = \"hello \".to_string();");
-    println!("\tlet mut string_str = \"hello rust\";");
-    println!("\tstring_string = {}", string_string);
-    println!("\tstring_string_2 = {}", string_string_2);
-    println!("\tstring_str = {}", string_str);
-    string_string.push_str("joe");
-    string_string_2.push_str("jane");
-    println!("\tstring_string.push_str(\"joe\");");
-    println!("\tstring_string_2.push_str(\"jane\");");
-    println!("\t// string_str.push_str(\"!\"); // not allowed");
-    // string_str.push_str("!"); not allowed even though it's mutable
-    println!("\tstring_string = {}", string_string);
-    println!("\tstring_string_2 = {}", string_string_2);
-    println!("\tstring_str = {}", string_str);
+    println!("7. String vs str");
+    let mut my_str_string = String::from("hello "); // mutable and can be treated
+    let mut my_str_2_string = "hello ".to_string(); // mutable and can be treated
+    let mut my_str_str = "hello "; // immutable and can't be treated
+    println!("\tstring_string = {}", my_str_string);
+    println!("\tstring_string_2 = {}", my_str_2_string);
+    println!("\tstring_str = {}", my_str_str);
+    my_str_string.push_str("rust");
+    my_str_2_string.push_str("rust");
+    // my_str_str.push_str("rust"); not allowed
+    println!("\tstring_string = {}", my_str_string);
+    println!("\tstring_string_2 = {}", my_str_2_string);
+    println!("\tstring_str = {}", my_str_str);
 
-    println!("Concatanating a character to a string");
-    let mut concat_me = String::from("1234567");
-    // let mut concat_me = "1234567".to_string(); // String (this would work)
-    // let mut concat_me = "1234567"; // str (this wouldn't work)
-    println!("\tlet mut concat_me = String::from(\"1234567\");");
-    println!("\tconcat_me = {}", concat_me);
-    concat_me.push('8');
-    println!("\tconcat_me.push('8');");
-    println!("\tconcat_me = {}", concat_me);
+    println!("8. Concatanating a character into a string");
+    let mut my_str = String::from("1234567");
+    // let mut my_str = "1234567".to_string(); // String (this would work)
+    // let mut my_str = "1234567"; // str (this wouldn't work)
+    println!("\t{}", my_str);
+    my_str.push('8');
+    println!("\t{}", my_str);
 
-    println!("Concatanating a string to a string");
-    let mut concat_me = String::from("hello ");
-    println!("\tlet mut concat_me = String::from(\"hello \");");
-    println!("\tconcat_me = {}", concat_me);
-    concat_me.push_str("world!");
-    println!("\tconcat_me.push_str(\"world!\");");
-    println!("\tconcat_me = {}", concat_me);
+    println!("9. Concatanating a string into a string");
+    let mut my_str = String::from("hello ");
+    println!("\t{}", my_str);
+    my_str.push_str("world!");
+    println!("\t{}", my_str);
 
-    println!("Concatanating a string to a string using +");
-    let concat_me_1 = String::from("joe");
-    let concat_me_2 = String::from("jane");
-    let concat_me_3 = String::from("patrick");
-    println!("\tlet concat_me_1 = String::from(\"joe\");");
-    println!("\tlet concat_me_2 = String::from(\"jane\");");
-    println!("\tlet concat_me_3 = String::from(\"patrick\");");
-    let whole_string = concat_me_1 + "-" + &concat_me_2 + "-" + &concat_me_3;
-    println!("\tlet whole_string = concat_me_1 + \"-\" + &concat_me_2 + \"-\" + &concat_me_3;");
-    println!("\twhole_string = {}", whole_string);
+    println!("10. Concatanating a string into a string using +");
+    let my_str_1 = String::from("joe");
+    let my_str_2 = String::from("jane");
+    let my_str_3 = String::from("patrick");
+    let whole_string = my_str_1 + "-" + &my_str_2 + "-" + &my_str_3;
+    println!("\t{}", whole_string);
+
+    println!("11. String indexing");
+    let my_str = String::from("hello");
+    // let h = my_str[0]; // not allowed
+
+    println!("12. Internal string representations");
+    let my_str = String::from("Hi");
+    println!("\t{}", my_str.len()); // 2 because each character is encoded in 1 byte
+    let my_str = String::from("Здравствуйте");
+    println!("\t{}", my_str.len()); // 24 because each character is encoded in 2 bytes
+    println!("\t{}", my_str.chars().count()); // 12 because it's number of characters
+
+    println!("13. String slicing");
+    let my_str = "Здравствуйте";
+    println!("\t{}", &my_str[0..4]); // because each character is encoded in 2 bytes
+    let my_str = "hello";
+    println!("\t{}", &my_str[0..4]); // because each character is encoded in 1 byte
+
+    println!("14. Iterating over strings");
+    let my_str = "Зд";
+    for c in my_str.chars() {
+        println!("\t{}", c); // 2 loops
+    }
+    for b in my_str.bytes() {
+        println!("\t{}", b); // 4 loops because each character is encoded in 2 bytes
+    }
 }
