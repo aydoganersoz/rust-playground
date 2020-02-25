@@ -1,23 +1,21 @@
 fn main() {
-    println!("Numeric operations");
+    println!("1. Addition");
+    let ret = 5 + 10;
+    println!("\t{}", ret);
 
-    // addition
-    let sum = 5 + 10;
-    println!("\t5 + 10 = {}", sum);
+    println!("2. Subtraction");
+    let ret = 95.5 - 4.3;
+    println!("\t{}", ret);
 
-    // subtraction
-    let difference = 95.5 - 4.3;
-    println!("\t95.5 - 4.3 = {}", difference);
+    println!("3. Multiplication");
+    let ret = 4 * 30;
+    println!("\t{}", ret);
 
-    // multiplication
-    let product = 4 * 30;
-    println!("\t4 * 30 = {}", product);
+    println!("4. Division");
+    let ret = 56.7 / 32.2;
+    println!("\t{}", ret);
 
-    // division
-    let quotient = 56.7 / 32.2;
-    println!("\t56.7 / 32.2 = {}", quotient);
-
-    // remainder
-    let remainder = 43 % 5;
-    println!("\t43 % 5 = {}", remainder);
+    println!("5. Remainder");
+    let ret = 43 % 5;
+    println!("\t{}", ret);
 }
