@@ -1,7 +1,7 @@
 #[allow(clippy::unreadable_literal)]
 
 fn main() {
-    println!("Integer types");
+    println!("1. Integer types");
 
     let i8_max: i8 = std::i8::MAX;
     let i8_min: i8 = std::i8::MIN;
@@ -51,7 +51,7 @@ fn main() {
     let uarch_min: usize = std::usize::MIN;
     println!("\tuarch_min={}\n\tuarch_max={}", uarch_min, uarch_max);
 
-    println!("Integer literals");
+    println!("2. Integer literals");
 
     let i = 16_756_432;
     println!("\t16_756_432 = {} (decimal with visual seperator)", i);
@@ -74,7 +74,7 @@ fn main() {
     let i = b'A';
     println!("\tb'A' = {} (byte)", i);
 
-    println!("Type suffix");
+    println!("3. Type suffix");
 
     let i = 5u8;
     println!("\t5u8 = {}", i);
@@ -118,7 +118,7 @@ fn main() {
     let i = -5isize;
     println!("\t-5isize = {}", i);
 
-    println!("Floating-point types");
+    println!("4. Floating-point types");
 
     let i = 2.9876543210;
     println!("\tf64 (default) = {:.10}", i);
@@ -127,7 +127,7 @@ fn main() {
     println!("\tf32 = {:.6}", i);
 
     // encoded in 1 byte
-    println!("Boolean type");
+    println!("5. Boolean type");
 
     let i = false; // implicit
     println!("\t{}", i);
@@ -136,7 +136,7 @@ fn main() {
     println!("\t{}", i);
 
     // encoded in 4 bytes in rust and a lot more than ASCII
-    println!("Character type");
+    println!("6. Character type");
 
     let i = '😻';
     println!("\t{}", i);
