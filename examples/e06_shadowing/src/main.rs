@@ -1,25 +1,25 @@
 fn main() {
-    println!("Shadowing same type");
+    println!("1. Shadowing same type");
 
     // We’re effectively creating a new variable when we use the let keyword again
     let x = 5;
-    println!("\tThe value of x is: {}", x);
+    println!("\t{}", x);
 
     // We’re effectively creating a new variable when we use the let keyword again
     let x = x + 1;
-    println!("\tThe value of x is: {}", x);
+    println!("\t{}", x);
 
     // We’re effectively creating a new variable when we use the let keyword again
     let x = x * 2;
-    println!("\tThe value of x is: {}", x);
+    println!("\t{}", x);
 
-    println!("Shadowing different types");
+    println!("2. Shadowing different types");
 
     // We’re effectively creating a new variable when we use the let keyword again
     let y = "aaa";
-    println!("\tThe value of y is: {} (str)", y);
+    println!("\t{}", y);
 
     // We’re effectively creating a new variable when we use the let keyword again
     let y = y.len();
-    println!("\tThe value of y is: {} (i32)", y);
+    println!("\t{}", y);
 }
