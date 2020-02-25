@@ -9,10 +9,6 @@ fn main() {
     let x = x + 1;
     println!("\t{}", x);
 
-    // We’re effectively creating a new variable when we use the let keyword again
-    let x = x * 2;
-    println!("\t{}", x);
-
     println!("2. Shadowing different types");
 
     // We’re effectively creating a new variable when we use the let keyword again
