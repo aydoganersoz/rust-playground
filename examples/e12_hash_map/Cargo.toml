@@ -1,5 +1,5 @@
 [package]
-name = "e12_slice"
+name = "e12_hash_map"
 version = "0.1.0"
 authors = ["Aydogan Ersoz <aydoganersoz@protonmail.com>"]
 edition = "2018"
