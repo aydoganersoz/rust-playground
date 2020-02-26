@@ -1,44 +1,44 @@
 fn main() {
-    println!("infinite loop with `loop`");
-    let mut t = 0;
+    println!("1. Infinite loop with `loop`");
+    let mut i = 0;
     loop {
-        if t > 2 {
+        if i > 2 {
             break;
         }
-        println!("\t{0}", t);
-        t += 1;
+        println!("\t{}", i);
+        i += 1;
     }
 
-    println!("return a value from `loop`");
-    let mut q = 0;
+    println!("2. Return a value from `loop`");
+    let mut i = 0;
     let ret_val = loop {
-        if q > 8 {
-            break q * 30;
+        if i > 8 {
+            break i * 30;
         }
-        q += 1;
+        i += 1;
     };
-    println!("\t`loop` returned {0}", ret_val);
+    println!("\t{}", ret_val);
 
-    println!("`while` loop");
-    let mut j = 0;
-    while j <= 4 {
-        println!("\t{0}", j);
-        j += 1;
+    println!("3. `while` loop");
+    let mut i = 0;
+    while i <= 4 {
+        println!("\t{}", i);
+        i += 1;
     }
 
-    println!("`for` loop");
+    println!("4. `for` loop");
     for i in 0..3 {
-        println!("\t{0}", i);
+        println!("\t{}", i);
     }
 
-    println!("`for` loop with custom step");
+    println!("5. `for` loop with custom step");
     for i in (0..6).step_by(2) {
-        println!("\t{0}", i);
+        println!("\t{}", i);
     }
 
-    println!("`for` loop with iterator");
-    let names = ["Me", "You", "Him"];
-    for name in names.iter() {
-        println!("\t{0}", name);
+    println!("6. `for` loop with iterator");
+    let names = ["a", "b", "c"];
+    for i in names.iter() {
+        println!("\t{}", i);
     }
 }
