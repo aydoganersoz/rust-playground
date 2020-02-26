@@ -1,7 +1,7 @@
 fn main() {
     let temperature = 23;
 
-    println!("`if`-`else if`-`else`");
+    println!("1. `if`-`else if`-`else`");
     if temperature < 21 {
         println!("\tThe temperature is low");
     } else if temperature >= 21 && temperature < 31 {
@@ -10,7 +10,7 @@ fn main() {
         println!("\tThe temperature is high");
     }
 
-    println!("`if` in a `let` statement");
+    println!("2. `if` in a `let` statement");
     let season = if temperature >= 28 {
         "summer"
     } else {
