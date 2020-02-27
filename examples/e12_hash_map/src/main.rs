@@ -33,5 +33,8 @@ fn main() {
     println!("\t{:?}", my_hm);
 
     println!("7. Updating an hash map element if no value exists");
-    // TBD
+    println!("\t{:?}", my_hm);
+    my_hm.entry(String::from("team_4")).or_insert(50); // element 4 declaration
+    my_hm.entry(String::from("team_1")).or_insert(12); // no effect as value already exists
+    println!("\t{:?}", my_hm);
 }
