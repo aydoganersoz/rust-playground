@@ -15,19 +15,53 @@ fn main() {
     println!("5. Two integer argument integer return with `return`");
     let ret = func05(5, -3);
     println!("\tret: {}", ret);
+
+    println!("6. String reference argument");
+    let s = String::from("hello world");
+    println!("\t{}", s);
+    let ret = func06(&s);
+    println!("\t{}", ret);
+
+    println!("7. String argument");
+    let s = String::from("hello world");
+    println!("\t{}", s);
+    let ret = func07(s);
+    println!("\t{}", ret);
+
+    println!("8. Mutable string reference argument");
+    let mut s = String::from("hello world");
+    println!("\t{}", s);
+    func08(&mut s);
+    println!("\t{}", s);
+
+    println!("9. String reference return");
 }
 
-fn func01() {
-    println!("\tI don't take and receive anything.");
+fn func09() -> &String {
+    let s = String::from("hello world");
+    &s
+    // https://stackoverflow.com/questions/32682876/is-there-any-way-to-return-a-reference-to-a-variable-created-in-a-function
+    // https://bryce.fisher-fleig.org/blog/strategies-for-returning-references-in-rust/index.html
 }
 
-fn func02(x: u8) {
-    println!("\targ1: {}", x);
+fn func08(s: &mut String) {
+    s.push_str(" from here");
 }
 
-fn func03(x: i8, y: u16) {
+fn func07(s: String) -> usize {
+    s.len()
+}
+
+fn func06(s: &str) -> usize {
+    s.len()
+}
+
+#[allow(clippy::needless_return)]
+fn func05(x: i8, y: i8) -> i8 {
     println!("\targ1: {}", x);
     println!("\targ2: {}", y);
+
+    return x + y; // look func04 for other possibility
 }
 
 fn func04(x: i8, y: i8) -> i8 {
@@ -37,10 +71,15 @@ fn func04(x: i8, y: i8) -> i8 {
     x + y // look func05 for other possibility
 }
 
-#[allow(clippy::needless_return)]
-fn func05(x: i8, y: i8) -> i8 {
+fn func03(x: i8, y: u16) {
     println!("\targ1: {}", x);
     println!("\targ2: {}", y);
+}
 
-    return x + y; // look func04 for other possibility
+fn func02(x: u8) {
+    println!("\targ1: {}", x);
+}
+
+fn func01() {
+    println!("\thello rust!");
 }
