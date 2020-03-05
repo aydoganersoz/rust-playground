@@ -33,15 +33,6 @@ fn main() {
     println!("\t{}", s);
     func08(&mut s);
     println!("\t{}", s);
-
-    println!("9. String reference return");
-}
-
-fn func09() -> &String {
-    let s = String::from("hello world");
-    &s
-    // https://stackoverflow.com/questions/32682876/is-there-any-way-to-return-a-reference-to-a-variable-created-in-a-function
-    // https://bryce.fisher-fleig.org/blog/strategies-for-returning-references-in-rust/index.html
 }
 
 fn func08(s: &mut String) {

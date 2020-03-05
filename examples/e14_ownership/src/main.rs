@@ -1,3 +1,4 @@
+#[allow(unused_mut)]
 fn main() {
     println!("1. Variable scope");
     {
@@ -60,7 +61,74 @@ fn main() {
         func_mut_ref(&mut s1);
         println!("\t{}", s1); // s1 is still in scope
     }
+
+    println!("8. Multiple mutable reference");
+    {
+        // only one mutable reference is allowed at a time
+        let mut s = String::from("hello rust");
+        {
+            let r1 = &mut s; // r1 takes the ownership of s
+
+            // println!("\t{}", s); // not allowed as s has no longer the ownership
+            println!("\t{}", r1);
+            // r1 releases the ownership of s
+        }
+        println!("\t{}", s); // s is the owner of itself again
+        let r2 = &mut s; // r2 takes the ownership of s
+
+        // println!("\t{}", s); // not allowed as s has no longer the ownership
+        println!("\t{}", r2);
+    }
+
+    println!("9. Multiple mutable and immutable reference");
+    {
+        // we can't have a mutable reference while we have an immutable one
+        let mut s = String::from("bye");
+
+        // multiple immutable references are ok
+        let r1 = &s;
+        // multiple immutable references are ok
+        let r2 = &s;
+        //let r3 = &mut s; // not allowed
+        println!("\t{}, {}", r1, r2);
+    }
+
+    println!("10. Multiple mutable and immutable reference - 2");
+    {
+        let mut s = String::from("bye");
+
+        // multiple immutable references are ok
+        let r1 = &s;
+        // multiple immutable references are ok
+        let r2 = &s;
+        println!("\t{}, {}", r1, r2);
+        let r3 = &mut s; // allowed as r1 and r2 are no longer in scope
+        println!("\t{}", r3);
+    }
+
+    println!("11. Multiple mutable and immutable reference - 3");
+    {
+        // we can't have an immutable reference while we have a mutable one
+        let mut s = String::from("bye");
+
+        let r1 = &mut s;
+        // let r2 = &s; // not allowed as we have already a mutable one
+        println!("\t{}", r1);
+        let r2 = &s; // allowed as r1 is no longer in scope
+        println!("\t{}", r2);
+    }
+
+    println!("12. Dangling reference");
+    {
+        // let s = func_dangling_ref(); // not allowed
+    }
 }
+
+// fn func_dangling_ref() -> &String {
+//     let s = String::from("hello world");
+//     &s
+// }
+// lifetime of s is over
 
 fn func_mut_ref(s: &mut String) {
     s.push_str(" from here");
