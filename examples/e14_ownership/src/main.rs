@@ -71,8 +71,8 @@ fn main() {
             let r1 = &mut s; // r1 takes the ownership of s
             let r2 = &r1;
             let r3 = &r1;
+            // let r4 = &s; // not allowed as s is no longer the owner
 
-            // println!("\t{}", s); // not allowed as s has no longer the ownership
             println!("\t{}", r1);
             println!("\t{}", r2);
             println!("\t{}", r3);
@@ -94,19 +94,7 @@ fn main() {
         println!("\t{}", r3);
     }
 
-    println!("11. Multiple mutable and immutable reference - 3");
-    {
-        // we can't have an immutable reference while we have a mutable one
-        let mut s = String::from("bye");
-
-        let r1 = &mut s;
-        // let r2 = &s; // not allowed as we have already a mutable one
-        println!("\t{}", r1);
-        let r2 = &s; // allowed as r1 is no longer in scope
-        println!("\t{}", r2);
-    }
-
-    println!("12. Dangling reference");
+    println!("10. Dangling reference");
     {
         // let s = func_dangling_ref(); // not allowed
     }
