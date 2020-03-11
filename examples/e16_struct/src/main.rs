@@ -12,20 +12,20 @@ impl Student {
 }
 
 fn main() {
-    let mut student1 = Student {
+    println!("1. Struct variable definition");
+    let mut s = Student {
         id: 12_345_667,
-        name: String::from("jane"),
+        name: String::from("name"),
     };
+    print_student_info(&s);
 
-    print_student_info(&student1);
-
-    let jane_surname = " brown";
-    let ret = student1.add_surname(&jane_surname);
-    println!("\t{:?}", ret);
-    print_student_info(&student1);
+    println!("2. Struct method call");
+    let surname = " surname";
+    let _ = s.add_surname(&surname);
+    print_student_info(&s);
 }
 
-fn print_student_info(student: &Student) {
-    println!("\tstudent id: {}", student.id);
-    println!("\tstudent name: {}", student.name);
+fn print_student_info(s: &Student) {
+    println!("\tstudent id: {}", s.id);
+    println!("\tstudent name: {}", s.name);
 }
