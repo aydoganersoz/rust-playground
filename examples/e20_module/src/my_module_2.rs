@@ -6,6 +6,7 @@ pub mod my_nested_module {
 
     fn func2() {
         println!("\tI am func2 in my_nested_module");
+        super::func3();
     }
 }
 
