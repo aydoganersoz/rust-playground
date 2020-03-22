@@ -98,6 +98,12 @@ cargo build --release
 cargo doc --open
 ```
 
+8) Running unit tests
+
+```bash
+cargo test
+```
+
 # Managing dependencies with `crate`
 
 1) Add dependency (`rand`) to `Cargo.toml`
