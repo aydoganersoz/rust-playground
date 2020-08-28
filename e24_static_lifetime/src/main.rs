@@ -10,10 +10,10 @@ fn main() {
     let retval_3 = return_static_string_2();
     let retval_4 = argument_static_i32(&MY_STATIC_I32);
 
-    println!("{:?}", retval_1);
-    println!("{:?}", retval_2);
-    println!("{:?}", retval_3);
-    println!("{:?}", retval_4);
+    println!("\t{:?}", retval_1);
+    println!("\t{:?}", retval_2);
+    println!("\t{:?}", retval_3);
+    println!("\t{:?}", retval_4);
 }
 
 fn return_static_string() -> &'static str {

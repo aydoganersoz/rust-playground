@@ -7,8 +7,8 @@ fn main() {
     };
 
     println!("1. ToString trait");
-    println!("my_clock.to_string() = {:?}", my_clock.to_string());
+    println!("\tmy_clock.to_string() = {:?}", my_clock.to_string());
 
     println!("2. From trait");
-    println!("String::from(my_clock) = {:?}", String::from(my_clock));
+    println!("\tString::from(my_clock) = {:?}", String::from(my_clock));
 }
