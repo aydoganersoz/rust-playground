@@ -216,6 +216,4 @@ fn main() {
     for i in right {
         println!("\tit2(i) = {:?}", i);
     }
-
-    // https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.ge
 }
