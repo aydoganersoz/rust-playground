@@ -216,4 +216,12 @@ fn main() {
     for i in right {
         println!("\tit2(i) = {:?}", i);
     }
+
+    println!("zip - new");
+    let factors = &[2, 3, 5, 7, 11];
+    let limit = 5;
+    let zipped = (0..factors.len()).enumerate(1..limit);
+    for tup in zipped {
+        println!("\ttup = {:?}", tup);
+    }
 }
