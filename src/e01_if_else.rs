@@ -1,3 +1,4 @@
+// if-else
 fn test1() {
     let temperature = 23;
     let weather;
@@ -13,6 +14,7 @@ fn test1() {
     assert_eq!(weather, "mild weather");
 }
 
+// if-let
 fn test2() {
     let temperature = 23;
 
