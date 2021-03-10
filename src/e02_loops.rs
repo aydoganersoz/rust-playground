@@ -9,7 +9,7 @@ fn test1() {
         i += 1;
     }
 
-    assert_eq!(3, i);
+    assert_eq!(i, 3);
 }
 
 // loop returns a value
@@ -23,7 +23,7 @@ fn test2() {
         i += 1;
     };
 
-    assert_eq!(270, ret_val);
+    assert_eq!(ret_val, 270);
 }
 
 // while loop
@@ -34,7 +34,7 @@ fn test3() {
         i += 1;
     }
 
-    assert_eq!(5, i);
+    assert_eq!(i, 5);
 }
 
 // for loop
@@ -45,7 +45,7 @@ fn test4() {
         cnt = i;
     }
 
-    assert_eq!(2, cnt);
+    assert_eq!(cnt, 2);
 }
 
 // for loop with custom step
@@ -56,7 +56,7 @@ fn test5() {
         cnt = i;
     }
 
-    assert_eq!(4, cnt);
+    assert_eq!(cnt, 4);
 }
 
 // for loop with iterator
@@ -68,7 +68,7 @@ fn test6() {
         ch = i;
     }
 
-    assert_eq!("c", ch);
+    assert_eq!(ch, "c");
 }
 
 pub fn test() {
