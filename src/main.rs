@@ -4,6 +4,7 @@ mod e03_const;
 mod e04_mutability;
 mod e05_shadowing;
 mod e06_scalar_types;
+mod e07_numeric_operations;
 
 fn main() {
     e01_if_else::test();
@@ -12,4 +13,5 @@ fn main() {
     e04_mutability::test();
     e05_shadowing::test();
     e06_scalar_types::test();
+    e07_numeric_operations::test();
 }
