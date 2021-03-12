@@ -5,59 +5,6 @@ fn test1() {
     assert_eq!(a, ["joe", "jack"]);
     assert_eq!(a[0], "joe");
     assert_eq!(a[1], "jack");
-
-    println!("8. Array length");
-    let my_arr = [1, 2, 3, 4, 4, 4, 4, 4, 4];
-    println!("\t{}", my_arr.len());
-
-    println!("9. Array reverse");
-    let mut my_arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
-    println!("\t{:?}", my_arr);
-    my_arr.reverse();
-    println!("\t{:?}", my_arr);
-
-    println!("10. Array sort");
-    let mut my_arr = [9, 0, 5, 7, 1, 4, 3, 8, 2, 6];
-    println!("\t{:?}", my_arr);
-    my_arr.sort();
-    println!("\t{:?}", my_arr);
-
-    println!("11. Array swap");
-    let mut my_arr = [1, 2, 3, 4];
-    println!("\t{:?}", my_arr);
-    my_arr.swap(1, 2);
-    println!("\t{:?}", my_arr);
-
-    println!("12. Array search");
-    let my_arr = [1, 2, 3, 4, 5, 5, 1, 3, 0];
-    println!("\t{:?}", my_arr.contains(&0));
-
-    println!("13. Array compare");
-    let my_arr_1 = [1, 3];
-    let my_arr_2 = [1, 2];
-    let my_arr_3 = [1, 3];
-    println!("\t{:?}", my_arr_1.eq(&my_arr_2));
-    println!("\t{:?}", my_arr_1.eq(&my_arr_3));
-
-    println!("14. Array first element");
-    let my_arr = [2, 2, 3, 4, 5, 5, 1, 3, 0];
-    println!("\t{:?}", my_arr.first().unwrap());
-
-    println!("15. Array last element");
-    let my_arr = [2, 2, 3, 4, 5, 5, 1, 3, 0, 8];
-    println!("\t{:?}", my_arr.last().unwrap());
-
-    println!("16. Array get element at nth index");
-    let my_arr = [2, 2, 3, 4, 5, 5, 1, 3, 0];
-    println!("\t{:?}", my_arr.get(8).unwrap());
-
-    println!("17. Is array empty");
-    let my_arr = [2, 2, 3, 4, 5, 5, 1, 3, 0];
-    println!("\t{:?}", my_arr.is_empty());
-
-    println!("18. Array join");
-    let my_arr = ["one", "two", "three", "four"];
-    println!("\t{:?}", my_arr.join("-"));
 }
 
 // array initialization with type and length
@@ -123,27 +70,83 @@ fn test8() {
     }
 }
 
-fn test9() {}
+// array length
+fn test9() {
+    let a = [1, 2, 3, 4, 4, 4, 4, 4, 4];
 
-fn test10() {}
+    assert_eq!(a.len(), 9);
+}
 
-fn test11() {}
+// array reverse
+fn test10() {
+    let mut a = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+    let a_rev = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-fn test12() {}
+    a.reverse();
 
-fn test13() {}
+    assert_eq!(a, a_rev);
+}
 
-fn test14() {}
+// array sort
+fn test11() {
+    let mut a = [9, 0, 5, 7, 1, 4, 3, 8, 2, 6];
+    let a_sorted = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-fn test15() {}
+    a.sort();
 
-fn test16() {}
+    assert_eq!(a, a_sorted);
+}
 
-fn test17() {}
+// array swap
+fn test12() {
+    let mut a = ['a', 'b', 'c', 'd'];
+    let a_swap = ['c', 'b', 'a', 'd'];
 
-fn test18() {}
+    a.swap(0, 2);
 
-fn test19() {}
+    assert_eq!(a, a_swap);
+}
+
+// array search
+fn test13() {
+    let a = [1, 2, 3, 4, 5, 5, 1, 3, 0];
+
+    assert_eq!(a.contains(&0), true);
+    assert_eq!(a.contains(&9), false);
+}
+
+// array compare
+fn test14() {
+    let a = [1, 3];
+    let b = [1, 2];
+    let c = [1, 3];
+
+    assert_eq!(a.eq(&b), false);
+    assert_eq!(a.eq(&c), true);
+}
+
+// array first, last and nth element
+fn test15() {
+    let a = [2, 2, 3, 4, 5, 5, 1, 3, 0];
+
+    assert_eq!(a.first().unwrap(), &2);
+    assert_eq!(a.last().unwrap(), &0);
+    assert_eq!(a.get(4).unwrap(), &5);
+}
+
+// array empty check
+fn test16() {
+    let a = [2, 2, 3, 4, 5, 5, 1, 3, 0];
+
+    assert_eq!(a.is_empty(), false);
+}
+
+// array join
+fn test17() {
+    let a = ["11", "22", "33", "44"];
+
+    assert_eq!(a.join("-"), "11-22-33-44");
+}
 
 pub fn test() {
     test1();
@@ -163,6 +166,4 @@ pub fn test() {
     test15();
     test16();
     test17();
-    test18();
-    test19();
 }
