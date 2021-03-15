@@ -139,6 +139,6 @@ cargo fmt
 
 Run the following command from the root to run the tests in this repository:
 
-```sh
+```bash
 cargo run
 ```

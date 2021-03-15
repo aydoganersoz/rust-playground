@@ -1,72 +1,8 @@
-#[allow(unused_mut)]
-#[allow(unused_variables)]
-
 // declaring an empty string
 fn test1() {
     let a = String::new();
 
     assert_eq!(a, "");
-
-    println!("7. String vs str");
-    let mut my_str_string = String::from("hello "); // mutable and can be treated
-    let mut my_str_2_string = "hello ".to_string(); // mutable and can be treated
-    let mut my_str_str = "hello "; // immutable and can't be treated
-    println!("\tstring_string = {}", my_str_string);
-    println!("\tstring_string_2 = {}", my_str_2_string);
-    println!("\tstring_str = {}", my_str_str);
-    my_str_string.push_str("rust");
-    my_str_2_string.push_str("rust");
-    // my_str_str.push_str("rust"); not allowed
-    println!("\tstring_string = {}", my_str_string);
-    println!("\tstring_string_2 = {}", my_str_2_string);
-    println!("\tstring_str = {}", my_str_str);
-
-    println!("8. Concatanating a character into a string");
-    let mut my_str = String::from("1234567");
-    // let mut my_str = "1234567".to_string(); // String (this would work)
-    // let mut my_str = "1234567"; // str (this wouldn't work)
-    println!("\t{}", my_str);
-    my_str.push('8');
-    println!("\t{}", my_str);
-
-    println!("9. Concatanating a string into a string");
-    let mut my_str = String::from("hello ");
-    println!("\t{}", my_str);
-    my_str.push_str("world!");
-    println!("\t{}", my_str);
-
-    println!("10. Concatanating a string into a string using +");
-    let my_str_1 = String::from("joe");
-    let my_str_2 = String::from("jane");
-    let my_str_3 = String::from("patrick");
-    let whole_string = my_str_1 + "-" + &my_str_2 + "-" + &my_str_3;
-    println!("\t{}", whole_string);
-
-    println!("11. String indexing");
-    let my_str = String::from("hello");
-    // let h = my_str[0]; // not allowed
-
-    println!("12. Internal string representations");
-    let my_str = String::from("Hi");
-    println!("\t{}", my_str.len()); // 2 because each character is encoded in 1 byte
-    let my_str = String::from("Здравствуйте");
-    println!("\t{}", my_str.len()); // 24 because each character is encoded in 2 bytes
-    println!("\t{}", my_str.chars().count()); // 12 because it's number of characters
-
-    println!("13. String slicing");
-    let my_str = "Здравствуйте";
-    println!("\t{}", &my_str[0..4]); // because each character is encoded in 2 bytes
-    let my_str = "hello";
-    println!("\t{}", &my_str[0..4]); // because each character is encoded in 1 byte
-
-    println!("14. Iterating over strings");
-    let my_str = "Зд";
-    for c in my_str.chars() {
-        println!("\t{}", c); // 2 loops
-    }
-    for b in my_str.bytes() {
-        println!("\t{}", b); // 4 loops because each character is encoded in 2 bytes
-    }
 }
 
 // declaring a string (String) with initial value
@@ -110,17 +46,94 @@ fn test6() {
     assert!(b.capacity() < 11);
 }
 
-fn test7() {}
+// string vs str
+#[allow(unused_mut)]
+#[allow(unused_variables)]
+fn test7() {
+    let mut a = String::from("hello "); // mutable and can be treated
+    let mut b = "hello ".to_string(); // mutable and can be treated
+    let mut c = "hello "; // immutable and can't be treated
 
-fn test8() {}
+    a.push_str("rust");
+    b.push_str("rust");
+    // c.push_str("rust"); // not allowed
 
-fn test9() {}
+    assert_eq!(a, "hello rust");
+    assert_eq!(b, "hello rust");
+}
 
-fn test10() {}
+// concatanating a character into a string
+fn test8() {
+    let mut s = String::from("1234567");
 
-fn test11() {}
+    s.push('8');
 
-fn test12() {}
+    assert_eq!(s, "12345678");
+}
+
+// concatanating a string into a string
+fn test9() {
+    let mut a = String::from("hello ");
+
+    a.push_str("world!");
+
+    assert_eq!(a, "hello world!");
+}
+
+// concatanating a string into a string using +
+fn test10() {
+    let a = String::from("joe");
+    let b = String::from("jane");
+    let c = String::from("patrick");
+    let s = a + "-" + &b + "-" + &c;
+
+    assert_eq!(s, "joe-jane-patrick");
+}
+
+// string indexing
+#[allow(unused_variables)]
+fn test11() {
+    let s = String::from("hello");
+    // let h = s[0]; // not allowed
+}
+
+// internal string representations
+fn test12() {
+    let a = String::from("Hi");
+    let b = String::from("Здравствуйте");
+
+    assert_eq!(a.len(), 2); // 2 because each character is encoded in 1 byte
+    assert_eq!(b.len(), 24); // 24 because each character is encoded in 2 bytes
+    assert_eq!(b.chars().count(), 12); // 12 because it's number of characters
+}
+
+// string slicing
+fn test13() {
+    let a = "Здравствуйте";
+    let b = "hello";
+
+    assert_eq!(&a[0..4], "Зд");
+    assert_eq!(&b[0..4], "hell");
+}
+
+// iterating over strings
+fn test14() {
+    let s = "Зд";
+    let mut cnt1 = 0;
+    let mut cnt2 = 0;
+
+    for _ in s.chars() {
+        cnt1 += 1;
+    }
+
+    assert_eq!(cnt1, 2); // 2 loops because there are two characters in the string
+
+    for _ in s.bytes() {
+        cnt2 += 1;
+    }
+
+    assert_eq!(cnt2, 4); // 4 loops because each character is encoded in 2 bytes
+}
 
 pub fn test() {
     test1();
@@ -135,4 +148,6 @@ pub fn test() {
     test10();
     test11();
     test12();
+    test13();
+    test14();
 }
