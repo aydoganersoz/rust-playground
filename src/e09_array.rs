@@ -37,7 +37,7 @@ fn test5() {
     let a = ['s', 'c', 'f', 'b'];
 
     assert_eq!(a[3], 'b');
-    assert_eq!(a.get(3).unwrap(), &a[3]);
+    assert_eq!(a.get(3), Some(&'b'));
 }
 
 // accesing an element of a 2D array
@@ -129,9 +129,9 @@ fn test14() {
 fn test15() {
     let a = [2, 2, 3, 4, 5, 5, 1, 3, 0];
 
-    assert_eq!(a.first().unwrap(), &2);
-    assert_eq!(a.last().unwrap(), &0);
-    assert_eq!(a.get(4).unwrap(), &5);
+    assert_eq!(a.first(), Some(&2));
+    assert_eq!(a.last(), Some(&0));
+    assert_eq!(a.get(4), Some(&5));
 }
 
 // array empty check

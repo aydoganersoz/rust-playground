@@ -1,13 +1,8 @@
 use std::collections::HashMap;
 
-fn main() {
-    println!("1. Hash map declaration");
+// hash map declaration
+fn test1() {
     let mut my_hm = HashMap::new();
-
-    println!("2. Key-value insertion");
-    my_hm.insert(String::from("team_1"), 10); // element 1 declaration
-    my_hm.insert(String::from("team_2"), 50); // element 2 declaration
-    println!("\t{:?}", my_hm);
 
     println!("3. Hash maps and ownership");
     let new_key = String::from("team_3");
@@ -37,4 +32,35 @@ fn main() {
     my_hm.entry(String::from("team_4")).or_insert(50); // element 4 declaration
     my_hm.entry(String::from("team_1")).or_insert(12); // no effect as value already exists
     println!("\t{:?}", my_hm);
+}
+
+// key-value insertion
+fn test2() {
+    let mut h = HashMap::new();
+
+    h.insert(String::from("team_1"), 10); // element 1 declaration (key, value)
+    h.insert(String::from("team_2"), 50); // element 2 declaration (key, value)
+
+    assert_eq!(h.get("team_1"), Some(&10));
+    assert_eq!(h.get("team_2"), Some(&50));
+}
+
+fn test3() {}
+
+fn test4() {}
+
+fn test5() {}
+
+fn test6() {}
+
+fn test7() {}
+
+pub fn test() {
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+    test6();
+    test7();
 }
