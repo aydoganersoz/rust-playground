@@ -1,12 +1,6 @@
-fn main() {
-    println!("1. No argument no return");
+// no argument no return"
+fn test1() {
     func01();
-
-    println!("2. One integer argument no return");
-    func02(3);
-
-    println!("3. Two integer argument no return");
-    func03(-1, 999);
 
     println!("4. Two integer argument integer return");
     let ret = func04(5, -3);
@@ -34,6 +28,26 @@ fn main() {
     func08(&mut s);
     println!("\t{}", s);
 }
+
+// one integer argument no return
+fn test2() {
+    func02(3);
+}
+
+// two integer argument no return
+fn test3() {
+    func03(-1, 999);
+}
+
+fn test4() {}
+
+fn test5() {}
+
+fn test6() {}
+
+fn test7() {}
+
+fn test8() {}
 
 fn func08(s: &mut String) {
     s.push_str(" from here");
@@ -63,14 +77,25 @@ fn func04(x: i8, y: i8) -> i8 {
 }
 
 fn func03(x: i8, y: u16) {
-    println!("\targ1: {}", x);
-    println!("\targ2: {}", y);
+    assert_eq!(x, -1);
+    assert_eq!(y, 999);
 }
 
 fn func02(x: u8) {
-    println!("\targ1: {}", x);
+    assert_eq!(x, 3);
 }
 
 fn func01() {
-    println!("\thello rust!");
+    assert!(true);
+}
+
+pub fn test() {
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+    test6();
+    test7();
+    test8();
 }
