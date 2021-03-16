@@ -2,58 +2,83 @@ use std::collections::HashMap;
 
 // hash map declaration
 fn test1() {
-    let mut my_hm = HashMap::new();
+    let mut h = HashMap::new();
+    let k = 1;
+    let v = "val";
 
-    println!("3. Hash maps and ownership");
-    let new_key = String::from("team_3");
-    let new_value = 20;
-    my_hm.insert(new_key, new_value); // element 3 declaration
-    println!("\t{:?}", my_hm);
-    // println!("\t{}", new_key); // we are no longer the owner of this variable
-    println!("\t{}", new_value); // we are still the owner of this variable
-
-    println!("4. Accessing an hash map element");
-    let key = String::from("team_1");
-    let value = my_hm.get(&key);
-    println!("\t{:?}", value.unwrap());
-
-    println!("5. Iterate over an hash map");
-    for (key, value) in &my_hm {
-        println!("\t<{:?}, {:?}>", key, value);
-    }
-
-    println!("6. Updating an hash map element");
-    println!("\t{:?}", my_hm);
-    my_hm.insert(String::from("team_1"), 11); // element 1 update
-    println!("\t{:?}", my_hm);
-
-    println!("7. Updating an hash map element if no value exists");
-    println!("\t{:?}", my_hm);
-    my_hm.entry(String::from("team_4")).or_insert(50); // element 4 declaration
-    my_hm.entry(String::from("team_1")).or_insert(12); // no effect as value already exists
-    println!("\t{:?}", my_hm);
+    h.insert(k, v);
 }
 
 // key-value insertion
 fn test2() {
     let mut h = HashMap::new();
 
-    h.insert(String::from("team_1"), 10); // element 1 declaration (key, value)
-    h.insert(String::from("team_2"), 50); // element 2 declaration (key, value)
+    h.insert(String::from("k1"), 10); // element 1 declaration (key, value)
+    h.insert(String::from("k2"), 50); // element 2 declaration (key, value)
 
-    assert_eq!(h.get("team_1"), Some(&10));
-    assert_eq!(h.get("team_2"), Some(&50));
+    assert_eq!(h.get("k1"), Some(&10));
+    assert_eq!(h.get("k2"), Some(&50));
 }
 
-fn test3() {}
+// hash map and ownership
+fn test3() {
+    let mut h = HashMap::new();
+    let k = String::from("k3");
+    let v = 20;
 
-fn test4() {}
+    h.insert(k, v);
 
-fn test5() {}
+    // assert_eq!(k, "k3"); // not possible (we are no longer the owner of k)
+}
 
-fn test6() {}
+// accessing an hash map element
+fn test4() {
+    let mut h = HashMap::new();
 
-fn test7() {}
+    h.insert(String::from("k1"), -1);
+
+    assert_eq!(h.get(&String::from("k1")), Some(&-1));
+}
+
+// iterate over an hash map
+fn test5() {
+    let mut h = HashMap::new();
+
+    h.insert(String::from("k1"), 10);
+    h.insert(String::from("k2"), 50);
+
+    for (key, value) in &h {
+        if key == "k1" {
+            assert_eq!(value, &10);
+        } else {
+            assert_eq!(value, &50);
+        }
+    }
+}
+
+// updating an hash map element
+fn test6() {
+    let mut h = HashMap::new();
+
+    h.insert(1, 10);
+    assert_eq!(h.get(&1), Some(&10));
+
+    h.insert(1, 11); // update
+    assert_eq!(h.get(&1), Some(&11));
+}
+
+// updating an hash map element if no value exists
+fn test7() {
+    let mut h = HashMap::new();
+
+    h.insert(1, 10);
+
+    h.entry(2).or_insert(50); // insert if not exists
+    h.entry(1).or_insert(-4); // no effect as the key exists already
+
+    assert_eq!(h.get(&1), Some(&10));
+    assert_eq!(h.get(&2), Some(&50));
+}
 
 pub fn test() {
     test1();
