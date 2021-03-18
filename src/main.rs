@@ -11,6 +11,7 @@ mod e10_string;
 mod e11_hash_map;
 mod e12_functions;
 mod e13_ownership;
+mod e14_slice;
 
 fn main() {
     e01_if_else::test();
@@ -26,4 +27,5 @@ fn main() {
     e11_hash_map::test();
     e12_functions::test();
     e13_ownership::test();
+    e14_slice::test();
 }
