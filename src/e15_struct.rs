@@ -11,21 +11,32 @@ impl Student {
     }
 }
 
-fn main() {
-    println!("1. Struct variable definition");
+// struct variable definition
+fn test1() {
+    let s = Student {
+        id: 12_345_667,
+        name: String::from("name"),
+    };
+
+    assert_eq!(s.id, 12_345_667);
+    assert_eq!(s.name, "name");
+}
+
+// struct method call
+fn test2() {
     let mut s = Student {
         id: 12_345_667,
         name: String::from("name"),
     };
-    print_student_info(&s);
 
-    println!("2. Struct method call");
     let surname = " surname";
     let _ = s.add_surname(&surname);
-    print_student_info(&s);
+
+    assert_eq!(s.id, 12_345_667);
+    assert_eq!(s.name, "name surname");
 }
 
-fn print_student_info(s: &Student) {
-    println!("\tstudent id: {}", s.id);
-    println!("\tstudent name: {}", s.name);
+pub fn test() {
+    test1();
+    test2();
 }
