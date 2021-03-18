@@ -13,6 +13,7 @@ mod e12_functions;
 mod e13_ownership;
 mod e14_slice;
 mod e15_struct;
+mod e16_enum;
 
 fn main() {
     e01_if_else::test();
@@ -30,4 +31,5 @@ fn main() {
     e13_ownership::test();
     e14_slice::test();
     e15_struct::test();
+    e16_enum::test();
 }
