@@ -52,8 +52,6 @@ fn test3() {
     let nut = Nuts::Nut;
     let peanut = Nuts::Peanut;
     let hazelnut = Nuts::Hazelnut;
-    let pear = Fruits::Pear(String::from("2"));
-    //https://stackoverflow.com/questions/37516448/accessing-tuple-from-within-an-enum
 
     assert_eq!(nut as u8, 1);
     assert_eq!(peanut as u8, 2);
