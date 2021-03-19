@@ -11,5 +11,5 @@ fn test1() {
 }
 
 pub fn test() {
-    test1()
+    test1();
 }
