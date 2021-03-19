@@ -16,6 +16,7 @@ mod e15_struct;
 mod e16_enum;
 mod e17_match;
 mod e18_crate;
+mod e19_module;
 
 fn main() {
     e01_if_else::test();
@@ -36,4 +37,5 @@ fn main() {
     e16_enum::test();
     e17_match::test();
     e18_crate::test();
+    e19_module::test();
 }
