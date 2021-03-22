@@ -1,9 +1,14 @@
 use std::collections::HashMap;
 
-fn main() {
-    println!("1. Use");
+// use
+fn test1() {
     let mut hm = HashMap::new();
     hm.insert("k1", -1);
     hm.insert("k2", 2);
-    println!("\t{:?}", hm)
+
+    assert_eq!(hm.is_empty(), false);
+}
+
+pub fn test() {
+    test1()
 }
