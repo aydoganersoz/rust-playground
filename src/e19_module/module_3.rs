@@ -1,15 +1,15 @@
 #[derive(Debug)]
 pub struct MyStruct {
-    field_1: u32,    // private field
-    pub field_2: i8, // public field
+    field_1: i32,     // private field
+    pub field_2: i32, // public field
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum MyPubEnum {
     Field1,
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 enum MyPrivEnum {
     Field1,
 }
@@ -33,19 +33,27 @@ impl MyStruct {
     }
 }
 
-pub fn func1() {
+pub fn func1() -> i32 {
     let mut s = MyStruct {
         field_1: 5,
         field_2: -127,
     };
-    println!("\tI am func1 in my_module_3");
-    println!("\t{:?}", s);
+    assert_eq!(s.field_1, 5);
+    assert_eq!(s.field_2, -127);
+
     s.fill_default(); // private function can be called
-    println!("\t{:?}", s);
+    assert_eq!(s.field_1, 0);
+    assert_eq!(s.field_2, -2);
+
     s.pub_fill_default(); // public function can be called
-    println!("\t{:?}", s);
+    assert_eq!(s.field_1, 0);
+    assert_eq!(s.field_2, -1);
+
     let pub_enum = MyPubEnum::Field1;
-    println!("\t{:?}", pub_enum);
+    assert_eq!(pub_enum, MyPubEnum::Field1);
+
     let priv_enum = MyPrivEnum::Field1;
-    println!("\t{:?}", priv_enum);
+    assert_eq!(priv_enum, MyPrivEnum::Field1);
+
+    s.field_1 + s.field_2
 }
