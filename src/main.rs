@@ -21,6 +21,7 @@ mod e20_use;
 mod e21_test;
 mod e22_trait;
 mod e23_static_lifetime;
+mod e24_generics;
 
 fn main() {
     e01_if_else::test();
@@ -46,4 +47,5 @@ fn main() {
     e21_test::test();
     e22_trait::test();
     e23_static_lifetime::test();
+    e24_generics::test();
 }
