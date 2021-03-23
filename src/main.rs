@@ -19,6 +19,7 @@ mod e18_crate;
 mod e19_module;
 mod e20_use;
 mod e21_test;
+mod e22_trait;
 
 fn main() {
     e01_if_else::test();
@@ -42,4 +43,5 @@ fn main() {
     e19_module::test();
     e20_use::test();
     e21_test::test();
+    e22_trait::test();
 }
