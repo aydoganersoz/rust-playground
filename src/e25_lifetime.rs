@@ -2,17 +2,14 @@ struct Bar<'a> {
     foo: &'a i32,
 }
 
-fn main() {
-    println!("1. Lifetime");
-
+fn test1() {
     let foo_a = 20;
     let foo_b = 23;
 
     let a = create_bar(&foo_a);
     let b = create_bar(&foo_b);
-    let smaller = get_smaller_foo(&a, &b);
 
-    println!("\t{:?}", smaller);
+    assert_eq!(get_smaller_foo(&a, &b), &20);
 }
 
 fn create_bar(arg: &i32) -> Bar {
@@ -25,4 +22,8 @@ fn get_smaller_foo<'a>(a: &'a Bar, b: &'a Bar) -> &'a i32 {
     } else {
         b.foo
     }
+}
+
+pub fn test() {
+    test1();
 }
