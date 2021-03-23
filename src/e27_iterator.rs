@@ -1,4 +1,4 @@
-fn main() {
+fn test1() {
     println!("Infinite loop");
     for i in 1.. {
         println!("\ti = {:?}", i);
@@ -217,11 +217,120 @@ fn main() {
         println!("\tit2(i) = {:?}", i);
     }
 
-    println!("zip - new");
+    /*println!("zip - new");
     let factors = &[2, 3, 5, 7, 11];
     let limit = 5;
     let zipped = (0..factors.len()).enumerate(1..limit);
     for tup in zipped {
         println!("\ttup = {:?}", tup);
-    }
+    }*/
+}
+
+fn test2() {}
+
+fn test3() {}
+
+fn test4() {}
+
+fn test5() {}
+
+fn test6() {}
+
+fn test7() {}
+
+fn test8() {}
+
+fn test9() {}
+
+fn test10() {}
+
+fn test11() {}
+
+fn test12() {}
+
+fn test13() {}
+
+fn test14() {}
+
+fn test15() {}
+
+fn test16() {}
+
+fn test17() {}
+
+fn test18() {}
+
+fn test19() {}
+
+fn test20() {}
+
+fn test21() {}
+
+fn test22() {}
+
+fn test23() {}
+
+fn test24() {}
+
+fn test25() {}
+
+fn test26() {}
+
+fn test27() {}
+
+fn test28() {}
+
+fn test29() {}
+
+fn test30() {}
+
+fn test31() {}
+
+fn test32() {}
+
+fn test33() {}
+
+fn test34() {}
+
+fn test35() {}
+
+fn test36() {}
+
+pub fn test() {
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+    test6();
+    test7();
+    test8();
+    test9();
+    test10();
+    test11();
+    test12();
+    test13();
+    test14();
+    test15();
+    test16();
+    test17();
+    test18();
+    test19();
+    test20();
+    test21();
+    test22();
+    test23();
+    test24();
+    test25();
+    test26();
+    test27();
+    test28();
+    test29();
+    test30();
+    test31();
+    test32();
+    test33();
+    test34();
+    test35();
+    test36();
 }
