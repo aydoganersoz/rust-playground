@@ -1,4 +1,5 @@
-pub fn add_three(param: i32) -> i32 {
+#[allow(dead_code)]
+fn add_three(param: i32) -> i32 {
     param + 3
 }
 
@@ -23,3 +24,5 @@ mod unit_tests {
         assert_eq!(3, add_three(0));
     }
 }
+
+pub fn test() {}
