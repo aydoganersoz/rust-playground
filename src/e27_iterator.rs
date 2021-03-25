@@ -1,67 +1,17 @@
+// infinite loop
 fn test1() {
-    println!("Infinite loop");
+    let mut f = false;
+
     for i in 1.. {
-        println!("\ti = {:?}", i);
         if i == 10 {
+            f = true;
             break;
         }
     }
 
-    /* not available in stable release (only nightly for now)
-    println!("advance_by");
-    let arr = [1, 2, 3, 4, 5, 6];
-    let mut arr_iter = arr.iter();
-    arr_iter.advance_by(2);
-    println!("arr_iter.next() = {:?}", arr_iter.next().unwrap()); */
+    assert_eq!(f, true);
 
-    println!("all");
-    let arr = [1, 2, 3, 4, 5, 6];
-    println!("\t{:?}", arr.iter().all(|&x| x >= 1 && x <= 6));
-
-    println!("any");
-    let arr = [1, 2, 3, 4, 5, 6];
-    println!("\t{:?}", arr.iter().any(|&x| x == 3));
-
-    println!("chain");
-    let it1 = [1, 2, 3];
-    let it2 = [4, 5, 6];
-    let it1it2 = it1.iter().chain(it2.iter());
-    for i in it1it2 {
-        println!("\ti = {:?}", i);
-    }
-
-    println!("cmp");
-    let str1 = "abc";
-    let str2 = "aba";
-    let ordering = str1.cmp(str2);
-    println!("\ti = {:?}", ordering);
-
-    println!("collect");
-    let arr = [1, 2, 3, 4, 5];
-    let times_200: Vec<i32> = arr.iter().map(|&x| x * 200).collect();
-    println!("\ti = {:?}", times_200);
-
-    println!("count");
-    // consumes the iterator
-    let arr = [1, 2, 3, 4, 5];
-    println!("\t{:?}", arr.iter().count());
-
-    println!("cycle");
-    let arr = [1, 2, 3, 4, 5];
-    let mut cnt = 0;
-    for i in arr.iter().cycle() {
-        cnt += 1;
-        println!("\t(cnt, i) = ({:?}, {:?})", cnt, i);
-        if cnt > 12 {
-            break;
-        }
-    }
-
-    println!("enumerate");
-    let arr = ['a', 'b', 'z', 'w'];
-    for (idx, val) in arr.iter().enumerate() {
-        println!("\t({:?}, {:?})", idx, val);
-    }
+    /*-----*/
 
     println!("filter");
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13];
@@ -226,23 +176,90 @@ fn test1() {
     }*/
 }
 
-fn test2() {}
+// advance_by (not available in release yet)
+fn test2() {
+    /*let arr = [1, 2, 3, 4, 5, 6];
+    let mut arr_iter = arr.iter();
+    arr_iter.advance_by(2);*/
+}
 
-fn test3() {}
+// all
+fn test3() {
+    let arr = [1, 2, 3, 4, 5, 6];
 
-fn test4() {}
+    assert_eq!(arr.iter().all(|&x| x % 2 == 0), false);
+    assert_eq!(arr.iter().all(|&x| x < 10), true);
+}
 
-fn test5() {}
+// any
+fn test4() {
+    let arr = [1, 2, 3, 4, 5, 6];
 
-fn test6() {}
+    assert_eq!(arr.iter().any(|&x| x == 3), true);
+    assert_eq!(arr.iter().any(|&x| x > 6), false);
+}
 
-fn test7() {}
+// chain
+fn test5() {
+    let arr1 = [1, 2];
+    let arr2 = [4];
+    let mut arr3 = arr1.iter().chain(arr2.iter());
 
-fn test8() {}
+    assert_eq!(arr3.next(), Some(&arr1[0]));
+    assert_eq!(arr3.next(), Some(&arr1[1]));
+    assert_eq!(arr3.next(), Some(&arr2[0]));
+}
 
-fn test9() {}
+// cmp
+fn test6() {
+    let str1 = "abc";
+    let str2 = "aba";
 
-fn test10() {}
+    assert_eq!(str1.cmp(str2), std::cmp::Ordering::Greater);
+}
+
+// collect
+fn test7() {
+    let arr = [1, 2];
+    let times_200: Vec<i32> = arr.iter().map(|&x| x * 200).collect();
+
+    assert_eq!(times_200[0], 200);
+    assert_eq!(times_200[1], 400);
+}
+
+// count
+fn test8() {
+    // consumes the iterator
+    let arr = [1, 2, 3, 4, 5];
+
+    assert_eq!(arr.iter().count(), 5);
+}
+
+// cycle
+fn test9() {
+    let arr = [1, 2, 3, 4, 5];
+    let mut cnt = 0;
+
+    // repeats an iterator endlessly
+    for _ in arr.iter().cycle() {
+        cnt += 1;
+        if cnt > 12 {
+            break;
+        }
+    }
+
+    assert_eq!(cnt, 13);
+}
+
+// enumerate
+fn test10() {
+    let arr = ['a', 'b', 'z'];
+    let mut e = arr.iter().enumerate();
+
+    assert_eq!(e.next(), Some((0, &'a')));
+    assert_eq!(e.next(), Some((1, &'b')));
+    assert_eq!(e.next(), Some((2, &'z')));
+}
 
 fn test11() {}
 
