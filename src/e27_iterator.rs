@@ -13,16 +13,6 @@ fn test1() {
 
     /*-----*/
 
-    println!("filter");
-    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13];
-    let filtered_arr: Vec<&i32> = arr.iter().filter(|&&x| x >= 12).collect();
-    println!("\t{:?}", filtered_arr);
-
-    println!("find");
-    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13];
-    let found = arr.iter().find(|&&x| x == 7);
-    println!("\t{:?}", found);
-
     println!("flatten");
     let nested_vec = vec![vec![1, 2, 3, 4], vec![4, 5, 6]];
     let flattened: Vec<&i32> = nested_vec.iter().flatten().collect();
@@ -261,9 +251,23 @@ fn test10() {
     assert_eq!(e.next(), Some((2, &'z')));
 }
 
-fn test11() {}
+// filter
+fn test11() {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13];
 
-fn test12() {}
+    assert_eq!(
+        arr.iter().filter(|&&x| x >= 12).collect::<Vec<&i32>>(),
+        [&12, &12, &13]
+    );
+}
+
+// find
+fn test12() {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13];
+
+    assert_eq!(arr.iter().find(|&&x| x == 7), Some(&7));
+    assert_eq!(arr.iter().find(|&&x| x == 17), None);
+}
 
 fn test13() {}
 
