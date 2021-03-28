@@ -13,17 +13,6 @@ fn test1() {
 
     /*-----*/
 
-    println!("flatten");
-    let nested_vec = vec![vec![1, 2, 3, 4], vec![4, 5, 6]];
-    let flattened: Vec<&i32> = nested_vec.iter().flatten().collect();
-    println!("\t{:?}", flattened);
-
-    println!("fold");
-    // `reduce` in Python
-    let numbers = [2, 4, 6, 9, 12];
-    let folded = numbers.iter().fold(200, |acc, x| x + acc);
-    println!("\t{:?}", folded);
-
     println!("eq");
     let arr1 = ['a', 'b', 'c'];
     let arr2 = ['a', 'b', 'c'];
@@ -269,9 +258,22 @@ fn test12() {
     assert_eq!(arr.iter().find(|&&x| x == 17), None);
 }
 
-fn test13() {}
+// flatten
+fn test13() {
+    let arr = vec![vec![1, 2, 3, 4], vec![4, 5, 6]];
 
-fn test14() {}
+    assert_eq!(
+        arr.iter().flatten().collect::<Vec<&i32>>(),
+        [&1, &2, &3, &4, &4, &5, &6]
+    );
+}
+
+// fold (`reduce` in Python)
+fn test14() {
+    let arr = [2, 4, 6];
+
+    assert_eq!(arr.iter().fold(200, |acc, x| x + acc), 212); // 200+2+4+6
+}
 
 fn test15() {}
 
