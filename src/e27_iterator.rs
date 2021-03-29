@@ -13,115 +13,6 @@ fn test1() {
 
     /*-----*/
 
-    println!("eq");
-    let arr1 = ['a', 'b', 'c'];
-    let arr2 = ['a', 'b', 'c'];
-    let arr3 = ['a', 'b'];
-    println!("\t{:?}", arr1.iter().eq(arr2.iter()));
-    println!("\t{:?}", arr1.iter().eq(arr3.iter()));
-
-    println!("ge");
-    let arr1 = ['a', 'b', 'c'];
-    let arr2 = ['a', 'b', 'c'];
-    let arr3 = ['a', 'b'];
-    println!("\t{:?}", arr1.iter().ge(arr2.iter()));
-    println!("\t{:?}", arr1.iter().ge(arr3.iter()));
-
-    println!("gt");
-    let arr1 = ['a', 'b', 'c'];
-    let arr2 = ['a', 'b', 'c'];
-    let arr3 = ['a', 'b'];
-    println!("\t{:?}", arr1.iter().gt(arr2.iter()));
-    println!("\t{:?}", arr1.iter().gt(arr3.iter()));
-
-    println!("le");
-    let arr1 = ['a', 'b', 'c'];
-    let arr2 = ['a', 'b', 'c'];
-    let arr3 = ['a', 'b'];
-    println!("\t{:?}", arr1.iter().le(arr2.iter()));
-    println!("\t{:?}", arr1.iter().le(arr3.iter()));
-
-    println!("lt");
-    let arr1 = ['a', 'b', 'c'];
-    let arr2 = ['a', 'b', 'c'];
-    let arr3 = ['a', 'b'];
-    println!("\t{:?}", arr1.iter().lt(arr2.iter()));
-    println!("\t{:?}", arr1.iter().lt(arr3.iter()));
-
-    println!("ne");
-    let arr1 = ['a', 'b', 'c'];
-    let arr2 = ['a', 'b', 'c'];
-    let arr3 = ['a', 'b'];
-    println!("\t{:?}", arr1.iter().ne(arr2.iter()));
-    println!("\t{:?}", arr1.iter().ne(arr3.iter()));
-
-    println!("last");
-    // consumes the iterator
-    let arr = [1, 2, 3, 4, 5, 6];
-    println!("\t{:?}", arr.iter().last().unwrap());
-
-    println!("nth");
-    // consumes the iterator up to the nth element
-    let arr = [1, 2, 3, 4, 5, 6];
-    println!("\t{:?}", arr.iter().nth(3).unwrap());
-
-    println!("map");
-    let arr = [1, 2, 3, 4, 5, 6];
-    let mapped: Vec<i32> = arr.iter().map(|x| x * 2).collect();
-    println!("\t{:?}", mapped);
-
-    println!("max");
-    let arr = [1, 2, 3, 4, 5, 6];
-    println!("\t{:?}", arr.iter().max().unwrap());
-
-    println!("min");
-    let arr = [1, 2, 3, 4, 5, 6];
-    println!("\t{:?}", arr.iter().min().unwrap());
-
-    println!("position");
-    let arr = ["p", "h", "r", "t"];
-    println!("\t{:?}", arr.iter().position(|&x| x == "r"));
-
-    println!("rposition");
-    let arr = ["p", "h", "r", "t"];
-    println!("\t{:?}", arr.iter().rposition(|&x| x == "r"));
-
-    println!("product");
-    let arr = [1, 2, 3, 4, 5, 6];
-    println!("\t{:?}", arr.iter().product::<i32>());
-
-    println!("rev");
-    let arr = [1, 2, 3, 4, 5, 6];
-    let arrit = arr.iter().rev();
-    for i in arrit {
-        println!("\ti = {:?}", i);
-    }
-
-    println!("skip");
-    let arr = [1, 2, 3, 4, 5, 6];
-    let arrit = arr.iter().skip(2);
-    for i in arrit {
-        println!("\ti = {:?}", i);
-    }
-
-    println!("step_by");
-    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-    let arrit = arr.iter().step_by(2);
-    for i in arrit {
-        println!("\ti = {:?}", i);
-    }
-
-    println!("sum");
-    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-    println!("\t{:?}", arr.iter().sum::<i32>());
-
-    println!("take");
-    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-    let arrit = arr.iter().take(10);
-    for i in arrit {
-        println!("\ti = {:?}", i);
-    }
-
     println!("zip");
     let it1 = [1, 2, 3];
     let it2 = [4, 5, 6];
@@ -275,29 +166,115 @@ fn test14() {
     assert_eq!(arr.iter().fold(200, |acc, x| x + acc), 212); // 200+2+4+6
 }
 
-fn test15() {}
+// eq - ge - gt - le - lt - ne
+fn test15() {
+    let arr1 = ['a', 'b', 'c'];
+    let arr2 = ['a', 'b', 'c'];
+    let arr3 = ['a', 'b'];
 
-fn test16() {}
+    assert_eq!(arr1.iter().eq(arr2.iter()), true);
+    assert_eq!(arr1.iter().eq(arr3.iter()), false);
+    assert_eq!(arr1.iter().ge(arr2.iter()), true);
+    assert_eq!(arr1.iter().ge(arr3.iter()), true);
+    assert_eq!(arr1.iter().gt(arr2.iter()), false);
+    assert_eq!(arr1.iter().gt(arr3.iter()), true);
+    assert_eq!(arr1.iter().le(arr2.iter()), true);
+    assert_eq!(arr1.iter().le(arr3.iter()), false);
+    assert_eq!(arr1.iter().lt(arr2.iter()), false);
+    assert_eq!(arr1.iter().lt(arr3.iter()), false);
+    assert_eq!(arr1.iter().ne(arr2.iter()), false);
+    assert_eq!(arr1.iter().ne(arr3.iter()), true);
+}
 
-fn test17() {}
+// last
+fn test16() {
+    // consumes the iterator
+    let arr = [1, 2, 3, 4, 5, 6];
 
-fn test18() {}
+    assert_eq!(arr.iter().last(), Some(&6));
+}
 
-fn test19() {}
+// nth
+fn test17() {
+    // consumes the iterator up to the nth element
+    let arr = [1, 2, 3, 4, 5, 6];
 
-fn test20() {}
+    assert_eq!(arr.iter().nth(3), Some(&4));
+}
 
-fn test21() {}
+// map
+fn test18() {
+    let arr = [1, 2, 3, 4, 5, 6];
 
-fn test22() {}
+    assert_eq!(
+        arr.iter().map(|x| x * 2).collect::<Vec<i32>>(),
+        [2, 4, 6, 8, 10, 12]
+    );
+}
 
-fn test23() {}
+// max - min
+fn test19() {
+    let arr = [1, 2, 3, 4, 5, 6];
 
-fn test24() {}
+    assert_eq!(arr.iter().min(), Some(&1));
+    assert_eq!(arr.iter().max(), Some(&6));
+}
 
-fn test25() {}
+// position - rposition
+fn test20() {
+    let arr = ["p", "h", "r", "t"];
 
-fn test26() {}
+    assert_eq!(arr.iter().position(|&x| x == "r"), Some(2));
+    assert_eq!(arr.iter().rposition(|&x| x == "r"), Some(2));
+}
+
+// product
+fn test21() {
+    let arr = [1, 2, 3, 4, 5, 6];
+
+    assert_eq!(arr.iter().product::<i32>(), 720);
+}
+
+// rev
+fn test22() {
+    let arr = [1, 2, 3, 4, 5, 6];
+
+    assert_eq!(
+        arr.iter().rev().collect::<Vec<&i32>>(),
+        [&6, &5, &4, &3, &2, &1]
+    );
+}
+
+// skip
+fn test23() {
+    let arr = [1, 2, 3, 4, 5, 6];
+
+    assert_eq!(arr.iter().skip(4).collect::<Vec<&i32>>(), [&5, &6]);
+}
+
+// step_by
+fn test24() {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+    assert_eq!(
+        arr.iter().step_by(2).collect::<Vec<&i32>>(),
+        [&1, &3, &5, &7, &9, &11, &13]
+    );
+}
+
+// sum
+fn test25() {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+    assert_eq!(arr.iter().sum::<i32>(), 91);
+}
+
+// take
+fn test26() {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+    assert_eq!(arr.iter().take(4).collect::<Vec<&i32>>(), [&1, &2, &3, &4]);
+}
 
 fn test27() {}
 
