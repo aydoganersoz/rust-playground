@@ -10,28 +10,6 @@ fn test1() {
     }
 
     assert_eq!(f, true);
-
-    /*-----*/
-
-    println!("unzip");
-    let it1 = [1, 2, 3];
-    let it2 = [4, 5, 6];
-    let it1it2 = it1.iter().zip(it2.iter());
-    let (left, right): (Vec<i32>, Vec<i32>) = it1it2.unzip();
-    for i in left {
-        println!("\tit1(i) = {:?}", i);
-    }
-    for i in right {
-        println!("\tit2(i) = {:?}", i);
-    }
-
-    /*println!("zip - new");
-    let factors = &[2, 3, 5, 7, 11];
-    let limit = 5;
-    let zipped = (0..factors.len()).enumerate(1..limit);
-    for tup in zipped {
-        println!("\ttup = {:?}", tup);
-    }*/
 }
 
 // advance_by (not available in release yet)
@@ -271,25 +249,19 @@ fn test27() {
     let mut it1it2 = it1.iter().zip(it2.iter());
 
     assert_eq!(it1it2.next(), Some((&1, &4)));
+    assert_eq!(it1it2.next(), Some((&2, &5)));
 }
 
-fn test28() {}
+// unzip
+fn test28() {
+    let it1 = [1, 2, 3];
+    let it2 = [4, 5, 6];
+    let it1it2 = it1.iter().zip(it2.iter());
+    let (left, right): (Vec<i32>, Vec<i32>) = it1it2.unzip();
 
-fn test29() {}
-
-fn test30() {}
-
-fn test31() {}
-
-fn test32() {}
-
-fn test33() {}
-
-fn test34() {}
-
-fn test35() {}
-
-fn test36() {}
+    assert_eq!(left, [1, 2, 3]);
+    assert_eq!(right, [4, 5, 6]);
+}
 
 pub fn test() {
     test1();
@@ -320,12 +292,4 @@ pub fn test() {
     test26();
     test27();
     test28();
-    test29();
-    test30();
-    test31();
-    test32();
-    test33();
-    test34();
-    test35();
-    test36();
 }
