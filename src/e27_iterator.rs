@@ -13,18 +13,6 @@ fn test1() {
 
     /*-----*/
 
-    println!("zip");
-    let it1 = [1, 2, 3];
-    let it2 = [4, 5, 6];
-    let it1it2 = it1.iter().zip(it2.iter());
-    for (i, j) in it1it2 {
-        println!("\t(i, j) = ({:?}, {:?})", i, j);
-    }
-    let it1it2 = it1.iter().zip(it2.iter());
-    for tup in it1it2 {
-        println!("\ttup = {:?}", tup);
-    }
-
     println!("unzip");
     let it1 = [1, 2, 3];
     let it2 = [4, 5, 6];
@@ -276,7 +264,14 @@ fn test26() {
     assert_eq!(arr.iter().take(4).collect::<Vec<&i32>>(), [&1, &2, &3, &4]);
 }
 
-fn test27() {}
+// zip
+fn test27() {
+    let it1 = [1, 2, 3];
+    let it2 = [4, 5, 6];
+    let mut it1it2 = it1.iter().zip(it2.iter());
+
+    assert_eq!(it1it2.next(), Some((&1, &4)));
+}
 
 fn test28() {}
 
