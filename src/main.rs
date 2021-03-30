@@ -25,6 +25,7 @@ mod e24_generics;
 mod e25_lifetime;
 mod e26_closure;
 mod e27_iterator;
+mod e28_format;
 
 fn main() {
     e01_if_else::test();
@@ -54,4 +55,5 @@ fn main() {
     e25_lifetime::test();
     e26_closure::test();
     e27_iterator::test();
+    e28_format::test();
 }
