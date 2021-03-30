@@ -118,6 +118,21 @@ fn test10() {
     // let s = func_dangling_ref(); // not allowed
 }
 
+fn test11() {
+    let list = vec!["hello", "world"];
+
+    assert_eq!(join_str(&list), "helloworld");
+}
+
+fn join_str(list: &[&str]) -> String {
+    let mut new_str = String::new();
+
+    new_str.push_str(list[0]);
+    new_str.push_str(list[1]);
+
+    new_str
+}
+
 // fn func_dangling_ref() -> &String {
 //     let s = String::from("hello world");
 //     &s
@@ -147,4 +162,5 @@ pub fn test() {
     test8();
     test9();
     test10();
+    test11();
 }
